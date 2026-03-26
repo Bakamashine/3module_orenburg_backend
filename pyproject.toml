@@ -1,0 +1,14 @@
+[project]
+name = "3module-orenburg-backend"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.0.3",
+    "django-cors-headers==4.9.0",
+    "django-filter==25.2",
+    "django-rest-framework==0.1.0",
+    "djangorestframework==3.17.1",
+    "djangorestframework-simplejwt==5.5.1",
+    "djangorestframework-stubs>=3.16.8",
+]
