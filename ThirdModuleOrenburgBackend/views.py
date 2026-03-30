@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, User
+from django.contrib.auth.models import User
 from rest_framework import generics, response, status
 
 from ThirdModuleOrenburgBackend.serializers import RegisterSerializer
@@ -6,6 +6,7 @@ from ThirdModuleOrenburgBackend.serializers import RegisterSerializer
 
 class RegisterUserApi(generics.CreateAPIView):
     serializer_class = RegisterSerializer
+
     def post(self, request, *args, **kwargs):
         user = self.serializer_class(data=request.POST)
         if user.is_valid():
