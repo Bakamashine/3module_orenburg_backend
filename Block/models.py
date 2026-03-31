@@ -35,12 +35,19 @@ class ShareRoom(models.Model):
 
 
 class Block(models.Model):
+    class TypeBlock(models.TextChoices):
+        rectangle = "rectangle"
+        triangle = "triangle"
+        circle = "circle"
+        text = "text"
+
     room = models.ForeignKey(to=Room, on_delete=CASCADE, related_name='blocks')
     x = models.IntegerField(verbose_name="Место по оси x")
     y = models.IntegerField(verbose_name='Место по оси Y')
     width = models.IntegerField(verbose_name="Длина")
     height = models.IntegerField(verbose_name="Высота")
     color = models.CharField(verbose_name="Цвет")
+    type = models.CharField(choices=TypeBlock.choices,default=TypeBlock.rectangle)
 
     def __str__(self):
         return f"Block {self.id} in Room {self.room.id}"
